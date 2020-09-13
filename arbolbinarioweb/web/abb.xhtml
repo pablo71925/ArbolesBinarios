@@ -17,8 +17,8 @@
                 <p:commandButton ajax="false"  value="Agregar" action="#{arbolBinarioControlador.adicionarNodo()}"
                                  update="@all" />
                 <p:commandButton value="InOrden" action="#{arbolBinarioControlador.habilitarInOrden()}" update="@all" ajax="false"/>
+                <p:commandButton value="PreOrden" action="#{arbolBinarioControlador.habilitarPreOrden()}" update="@all" ajax="false"/>
                 <p:commandButton value="PostOrden" action="#{arbolBinarioControlador.habilitarPostOrden()}" update="@all" ajax="false"/>
-                <p:commandButton value="PostOrden" action="#{arbolBinarioControlador.habilitarPreOrden()}" update="@all" ajax="false"/>
                 <p:commandButton value="Podar" action="#{arbolBinarioControlador.podarArbol()}" update="@all" ajax="false"/>
                 <p:commandButton value="Balance" action="#{arbolBinarioControlador.balance()}" update="@all" ajax="false"/>
                 <p:commandButton value="Rama(s) Mayor" action="#{arbolBinarioControlador.ramaMayor()}" update="@all" ajax="false"/>
@@ -50,7 +50,7 @@
 
             </p:panel>
                 <p:panel header="Buscar">
-                    <p:inputText required="true" value="#{arbolBinarioControlador.arbol.buscar(x)}"/>
+                    <p:inputText required="true" value=""/>
                 <p:commandButton value="Buscar " action="#{arbolBinarioControlador.buscarTerminadosEn()}"
                                  update="@all" ajax="false"/>
       
@@ -59,7 +59,7 @@
             
             
         </h:form>
-        <h:panelGroup rendered="#{arbolBinarioControlador.verInOrden}">
+        
             <p:panel header="InOrden">
                 <p:dataTable var="nodo" value="#{arbolBinarioControlador.arbol.inOrden()}">
                     <p:column headerText="Número">
@@ -69,7 +69,7 @@
                 </p:dataTable>
 
             </p:panel>
-        </h:panelGroup>
+      
 
         <p:panel header="PreOrden">
             <p:dataTable var="data" value="#{arbolBinarioControlador.arbol.preOrden()}">

@@ -87,7 +87,7 @@ public class ArbolBinarioControlador implements Serializable {
     }
     
         public boolean isVerPostOrden() {
-        return verInOrden;
+        return verPostOrden;
     }
 
     public void setVerPostOrden(boolean verPostOrden) {
