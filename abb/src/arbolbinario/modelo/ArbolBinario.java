@@ -120,6 +120,7 @@ public class ArbolBinario {
     }
 
     public ArrayList inOrden() throws ArbolBinarioException {
+        //isLleno();
         ArrayList l = new ArrayList();
         inOrden(raiz, l);
         return l;
@@ -161,7 +162,7 @@ public class ArbolBinario {
     private int contarNodos(Nodo reco, int cont)
     {
         //Hacen el dllo del contar
-        return 67;
+        return cont;
     }
     
     public ArrayList getHojas() {
@@ -198,6 +199,54 @@ public class ArbolBinario {
         }
         podar(x.getIzquierda());
         podar(x.getDerecha());
+    }
+    public String borrarMenor() {
+        Nodo reco=raiz.getIzquierda();
+        if (raiz != null) {
+            if (raiz.getIzquierda()== null) {
+                raiz = raiz.getDerecha();
+            } else {
+                Nodo anterior = raiz;
+                reco = raiz.getIzquierda();
+                while (reco.getIzquierda()!= null) {
+                    anterior = reco;
+                    reco = reco.getIzquierda();
+                }
+                
+                anterior.setIzquierda(reco.getDerecha());
+            }
+        }
+        return ("Valor eliminado: " + reco.getDato());
+    }
+
+    //borrar mayor
+    public String borrarMayor() {
+      Nodo reco=raiz.getIzquierda();
+        if (raiz != null) {
+            if (raiz.getDerecha()== null) {
+                raiz = raiz.getIzquierda();
+            } else {
+                Nodo anterior = raiz;
+                reco = raiz.getDerecha();
+                while (reco.getDerecha()!= null) {
+                    anterior = reco;
+                    reco = reco.getDerecha();
+                }
+                
+                anterior.setDerecha(reco.getIzquierda());
+            }
+        }
+        return ("Valor eliminado: " + reco.getDato());
+    }
+     public String menorValor() {
+         Nodo reco = raiz;
+        if (raiz != null) {
+            
+            while (reco.getIzquierda()!= null) {
+                reco = reco.getIzquierda();
+            }
+        }
+        return ("" + reco.getDato());
     }
     
         public void podar() {

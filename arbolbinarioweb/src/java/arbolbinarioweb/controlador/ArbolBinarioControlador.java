@@ -167,8 +167,20 @@ public class ArbolBinarioControlador implements Serializable {
       public void podarArbol() {
         this.arbol.podar();
         pintarArbol();
-        
-    }
+         }
+      public void borrarMayor(){
+      this.arbol.borrarMayor();
+      pintarArbol();
+      }
+      public void borrarMenor(){
+      this.arbol.borrarMenor();
+      pintarArbol();
+      }
+       public void menor(){
+      this.arbol.menorValor();
+     
+      }
+      
       private String recorrido(ArrayList it, String msg) {
         int i = 0;
         String r = msg + "\n";

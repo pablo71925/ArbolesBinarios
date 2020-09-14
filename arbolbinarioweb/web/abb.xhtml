@@ -23,9 +23,16 @@
                 <p:commandButton value="Balance" action="#{arbolBinarioControlador.balance()}" update="@all" ajax="false"/>
                 <p:commandButton value="Rama(s) Mayor" action="#{arbolBinarioControlador.ramaMayor()}" update="@all" ajax="false"/>
                 <p:commandButton value="Cambiar valores" action="#{arbolBinarioControlador.cambiar()}" update="@all" ajax="false"/>
+               
+                  
+                <p:commandButton value="BorrarMenor" action="#{arbolBinarioControlador.borrarMenor()}" update="@all" ajax="false"/>
+                <p:commandButton value="Menorvalor" action="#{arbolBinarioControlador.menor()}" update="@all" ajax="false"/>
                 
-                <p:outputLabel value="Nro Nodos: "/>
                 <p:outputLabel value="#{arbolBinarioControlador.arbol.contarNodos()}"/>
+                <p:outputLabel value="Nro Nodos: "/>
+                <p:commandButton value="BorrarMayor" action="#{arbolBinarioControlador.borrarMayor()}" update="@all" ajax="false"/>
+                
+                
                 
 
             </p:panel>
@@ -88,6 +95,8 @@
 
             </p:dataTable>
         </p:panel>
+        
+       
         
 
         <p:diagram id="pnlArbolTerminados" value="#{arbolBinarioControlador.modelArbol2}" style="height:400px" styleClass="ui-widget-content" />
