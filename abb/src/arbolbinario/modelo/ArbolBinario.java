@@ -120,7 +120,6 @@ public class ArbolBinario {
     }
 
     public ArrayList inOrden() throws ArbolBinarioException {
-        isLleno();
         ArrayList l = new ArrayList();
         inOrden(raiz, l);
         return l;
