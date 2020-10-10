@@ -33,22 +33,22 @@ public class ArbolBinario {
         }
     }
 
-    public void adicionarNodo(int dato, Nodo ubicacion) throws ArbolBinarioException {
+    public void adicionarNodo(int n, Nodo ubicacion) throws ArbolBinarioException {
         if (raiz == null) {
-            raiz = new Nodo(dato);
+            raiz = new Nodo(n);
 
         } else {
-            if (dato < ubicacion.getDato()) {
+            if (n < ubicacion.getDato()) {
                 if (ubicacion.getIzquierda() == null) {
-                    ubicacion.setIzquierda(new Nodo(dato));
+                    ubicacion.setIzquierda(new Nodo(n));
                 } else {
-                    adicionarNodo(dato, ubicacion.getIzquierda());
+                    adicionarNodo(n, ubicacion.getIzquierda());
                 }
-            } else if (dato > ubicacion.getDato()) {
+            } else if (n> ubicacion.getDato()) {
                 if (ubicacion.getDerecha() == null) {
-                    ubicacion.setDerecha(new Nodo(dato));
+                    ubicacion.setDerecha(new Nodo(n));
                 } else {
-                    adicionarNodo(dato, ubicacion.getDerecha());
+                    adicionarNodo(n, ubicacion.getDerecha());
                 }
             } else {
                 throw new ArbolBinarioException("No se puede repetir");
@@ -352,19 +352,23 @@ public class ArbolBinario {
     }
     
         public boolean cambiar() {
-            cambiar(raiz, 1);
+            cambiar(raiz,1);
             //System.out.println();
             return true;
     }
 
+    int dato=0;
     private void cambiar(Nodo reco, int nivel) {
         if (reco != null) {
-            reco.setDato(reco.getDato() * 3);
-            cambiar(reco.getIzquierda(), nivel + 1);
+       reco = new Nodo(dato);
+            reco.setDato(reco.getDato()*dato);
+            cambiar(reco.getIzquierda(),( nivel));
             //System.out.print(reco.getDato() + " Nivel: (" + nivel + ") ,");
-            cambiar(reco.getDerecha(), nivel + 1);
+            cambiar(reco.getDerecha(), (nivel));
         }
     }
         
+   
+   
         
 }

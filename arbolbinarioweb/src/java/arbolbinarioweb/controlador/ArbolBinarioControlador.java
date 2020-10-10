@@ -31,11 +31,17 @@ import org.primefaces.model.diagram.endpoint.EndPointAnchor;
 @SessionScoped
 public class ArbolBinarioControlador implements Serializable {
 
+    /**
+     * @return the num
+     */
+   
+
     private DefaultDiagramModel model;
     private DefaultDiagramModel modelArbol2;
 
     private ArbolBinario arbol = new ArbolBinario();
     private int dato;
+    private int num;
     private boolean verInOrden = false;
     private boolean verPostOrden = false;
     private boolean verPreOrden = false;
@@ -107,6 +113,13 @@ public class ArbolBinarioControlador implements Serializable {
 
     public void setDato(int dato) {
         this.dato = dato;
+    }
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 
     public ArbolBinario getArbol() {
@@ -203,11 +216,14 @@ public String balance(){
        
     }
 
-public String cambiar() {
+
+public void Cambiar() {
         this.arbol.cambiar();
+        
          pintarArbol();
-        return null;
+      
     }
+
 
     public String esta(Integer dato) {
         boolean siEsta = this.arbol.buscar(dato);
@@ -345,7 +361,7 @@ public String cambiar() {
             model.addElement(elementHijo);
 
             pintarArbolTerminados(reco.getIzquierda(), model, elementHijo, x - 5, y + 5);
-            pintarArbolTerminados(reco.getDerecha(), model, elementHijo, x + 5, y + 5);
+            pintarArbolTerminados(reco.getDerecha(), model, elementHijo, x + 0, y + 0);
         }
     }
 

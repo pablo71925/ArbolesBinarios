@@ -12,7 +12,7 @@ import arbolbinario.modelo.excepciones.ArbolBinarioException;
  * @author carloaiza
  */
 public class Nodo {
-    
+    private int num;
     private int dato;
     private Nodo izquierda;
     private Nodo derecha;
@@ -29,6 +29,7 @@ public class Nodo {
         this.dato = dato;
     }
 
+    
     public Nodo getIzquierda() {
         return izquierda;
     }

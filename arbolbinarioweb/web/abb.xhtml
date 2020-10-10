@@ -6,12 +6,41 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html">    
 
     <ui:define name="content"> 
-
+<style type="text/css">
+    .ui-diagram-element {   
+        width:8em; 
+        height:2em;     
+        line-height:2em;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+        border-radius: 4px;
+        border: 1px solid transparent;
+        background-color: #98AFC7;
+        color: #ffffff;
+    }
+     
+    .ui-diagram-success {
+        background-color: #9CB071;
+        color: #ffffff;
+        border-color: #7ab02c;
+    }
+     
+    .ui-diagram-fail {
+        background-color: #C34A2C;
+        color: #ffffff;
+    }
+     
+    .flow-label {
+        font-size: 12px;
+        font-weight: bold;
+        color: #816A51;
+    }
+</style>
         <p:growl id="grwlErrores"/>
         <p:diagram id="pnlArbol" value="#{arbolBinarioControlador.model}" style="height:400px" styleClass="ui-widget-content" />
 
         <h:form>
-            <p:panel header="Panel Nuevo Nodo">
+            <p:panel>
                 <p:outputLabel value="Dato:"/>
                 <p:inputText required="true" value="#{arbolBinarioControlador.dato}"/>
                 <p:commandButton ajax="false"  value="Agregar" action="#{arbolBinarioControlador.adicionarNodo()}"
@@ -22,7 +51,7 @@
                 <p:commandButton value="Podar" action="#{arbolBinarioControlador.podarArbol()}" update="@all" ajax="false"/>
                 <p:commandButton value="Balance" action="#{arbolBinarioControlador.balance()}" update="@all" ajax="false"/>
                 <p:commandButton value="Rama(s) Mayor" action="#{arbolBinarioControlador.ramaMayor()}" update="@all" ajax="false"/>
-                <p:commandButton value="Cambiar valores" action="#{arbolBinarioControlador.cambiar()}" update="@all" ajax="false"/>
+                <p:commandButton value="Cambiar valores" action="#{arbolBinarioControlador.Cambiar()}" update="@all" ajax="false"/>
                
                   
                 <p:commandButton value="BorrarMenor" action="#{arbolBinarioControlador.borrarMenor()}" update="@all" ajax="false"/>
@@ -54,17 +83,7 @@
                 <p:commandButton value="Obtener árbol terminados" 
                                  action="#{arbolBinarioControlador.encontrarTerminadosEn()}"
                                  update="@all" ajax="false"/>
-
-            </p:panel>
-                <p:panel header="Buscar">
-                    <p:inputText required="true" value=""/>
-                <p:commandButton value="Buscar " action="#{arbolBinarioControlador.buscarTerminadosEn()}"
-                                 update="@all" ajax="false"/>
-      
-
-            </p:panel>
-            
-            
+         </p:panel>
         </h:form>
         
             <p:panel header="InOrden">
@@ -95,11 +114,9 @@
 
             </p:dataTable>
         </p:panel>
-        
        
-        
 
-        <p:diagram id="pnlArbolTerminados" value="#{arbolBinarioControlador.modelArbol2}" style="height:400px" styleClass="ui-widget-content" />
+        <p:diagram id="pnlArbolTerminados" value="#{arbolBinarioControlador.modelArbol2}" style="height400px" styleClass="ui-widget-content" />
 
     </ui:define>
 
